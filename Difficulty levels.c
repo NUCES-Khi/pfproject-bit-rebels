@@ -7,10 +7,9 @@
 
 // Function to choose a random word based on difficulty level from a file
 void takeWordFromFile(char *word, int difficulty) {
-    FILE *file = fopen("/Users/urooj/Desktop/hangman.txt", "r");//read the file which 
-    //difficulty levels and the words of each level
+    FILE *file = fopen("/Users/urooj/Desktop/words.txt", "r");
     if (file == NULL) {
-        printf("File does not exists.\n");
+        printf("File does not exist.\n");
         exit(EXIT_FAILURE);
     }
 
@@ -22,17 +21,19 @@ void takeWordFromFile(char *word, int difficulty) {
         int currentDifficulty = atoi(token);
 
         if (currentDifficulty == difficulty) {
-            token = strtok(NULL, " \n");
+            // Extracting  the whole line after the colon
+            token = strtok(NULL, "\n");
 
-            // Tokenize the words using space as a delimiter
+            // Tokenize words using semicolon as a delimiter which break the string in blocks
             char *words[MAX_WORD_LENGTH];
             int count = 0;
+            token = strtok(token, ";");
             while (token != NULL) {
                 words[count++] = token;
-                token = strtok(NULL, " \n");
+                token = strtok(NULL, ";");
             }
 
-            // code for to select the words randomly according to user given difficulty level
+            // code to select random word from the file
             if (count > 0) {
                 int randomIndex = rand() % count;
                 strcpy(word, words[randomIndex]);
@@ -53,24 +54,19 @@ int main() {
 
     char word[MAX_WORD_LENGTH];
     int difficulty, incorrectAttempts = 0;
-    printf("\n");
 
-    printf("***************   WELCOME TO HANGMAN  **************\n");
+    printf("\n***************   WELCOME TO HANGMAN  **************\n");
     printf("\n");
-    printf("Choose the difficulty level\n");
-    printf("1:Easy\n");
-    printf("2:Medium\n");
-    printf("3:Hard\n");
-    printf("\n");
-    printf("Press 1 for EASY, 2 for MEDIUM, and 3 for Hard:\n");
-    printf("\n");
+    printf("\nChoose the difficulty level:\n");
+    printf("1: Easy\n");
+    printf("2: Medium\n");
+    printf("3: Hard\n");
+    printf("\nPress 1 for EASY, 2 for MEDIUM, and 3 for HARD:\n");
     scanf("%d", &difficulty);
 
     takeWordFromFile(word, difficulty);
-
-    printf("\n");
-
-    printf("Here you go, guess the word: %s\n", word);
+        printf("\n");
+    printf("\nHere you go, guess the word: %s\n", word);
 
     return 0;
 }
