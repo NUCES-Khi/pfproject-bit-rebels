@@ -31,7 +31,7 @@ void chooseWordFromFile(char *word, int difficulty) {
                 token = strtok(NULL, " \n");
             }
 
-            // Randomly select one of the words
+            //code for words to be selected randomly
             if (count > 0) {
                 int randomIndex = rand() % count;
                 strcpy(word, words[randomIndex]);
