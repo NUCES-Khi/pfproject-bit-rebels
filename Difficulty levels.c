@@ -6,7 +6,7 @@
 #define MAX_WORD_LENGTH 100
 
 // Function to choose a random word based on difficulty level from a file
-void chooseWordFromFile(char *word, int difficulty) {
+void takeWordFromFile(char *word, int difficulty) {
     FILE *file = fopen("/Users/urooj/Desktop/hangman.txt", "r");
     if (file == NULL) {
         printf("Error opening the file.\n");
@@ -31,7 +31,7 @@ void chooseWordFromFile(char *word, int difficulty) {
                 token = strtok(NULL, " \n");
             }
 
-            //code for words to be selected randomly
+            // Randomly select one of the words
             if (count > 0) {
                 int randomIndex = rand() % count;
                 strcpy(word, words[randomIndex]);
@@ -54,17 +54,19 @@ int main() {
     int difficulty, incorrectAttempts = 0;
     printf("\n");
 
-    printf("Welcome to hangman:\n");
+    printf("***************   WELCOME TO HANGMAN  **************\n");
+    printf("\n");
     printf("Choose the difficulty level\n");
     printf("1. Easy\n");
     printf("2. Medium\n");
     printf("3. Hard\n");
-    printf("Press 1 for EASY, 2 for MEDIUM, and 3 for Hard\n");
+    printf("Press 1 for EASY, 2 for MEDIUM, and 3 for Hard:\n");
+    printf("\n");
     scanf("%d", &difficulty);
 
-    chooseWordFromFile(word, difficulty);
+    takeWordFromFile(word, difficulty);
 
-    
+    printf("\n");
 
     printf("Here you go, guess the word: %s\n", word);
 
