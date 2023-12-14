@@ -57,9 +57,10 @@ int main() {
     printf("***************   WELCOME TO HANGMAN  **************\n");
     printf("\n");
     printf("Choose the difficulty level\n");
-    printf("1. Easy\n");
-    printf("2. Medium\n");
-    printf("3. Hard\n");
+    printf("1:Easy\n");
+    printf("2:Medium\n");
+    printf("3:Hard\n");
+    printf("\n");
     printf("Press 1 for EASY, 2 for MEDIUM, and 3 for Hard:\n");
     printf("\n");
     scanf("%d", &difficulty);
