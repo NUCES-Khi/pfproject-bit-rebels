@@ -7,7 +7,7 @@
 
 // Function to choose a random word based on difficulty level from a file
 void chooseWordFromFile(char *word, int difficulty) {
-    FILE *file = fopen("hangman.rtf", "r");
+    FILE *file = fopen("hangman.txt", "r");
     if (file == NULL) {
         printf("Error opening the file.\n");
         exit(EXIT_FAILURE);
