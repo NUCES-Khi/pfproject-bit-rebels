@@ -7,9 +7,10 @@
 
 // Function to choose a random word based on difficulty level from a file
 void takeWordFromFile(char *word, int difficulty) {
-    FILE *file = fopen("/Users/urooj/Desktop/hangman.txt", "r");
+    FILE *file = fopen("/Users/urooj/Desktop/hangman.txt", "r");//read the file which 
+    //difficulty levels and the words of each level
     if (file == NULL) {
-        printf("Error opening the file.\n");
+        printf("File does not exists.\n");
         exit(EXIT_FAILURE);
     }
 
@@ -31,7 +32,7 @@ void takeWordFromFile(char *word, int difficulty) {
                 token = strtok(NULL, " \n");
             }
 
-            // Randomly select one of the words
+            // code for to select the words randomly according to user given difficulty level
             if (count > 0) {
                 int randomIndex = rand() % count;
                 strcpy(word, words[randomIndex]);
