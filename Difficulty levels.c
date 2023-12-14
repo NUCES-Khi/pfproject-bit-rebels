@@ -3,11 +3,11 @@
 #include <string.h>
 #include <time.h>
 
-#define MAX_WORD_LENGTH 20
+#define MAX_WORD_LENGTH 100
 
 // Function to choose a random word based on difficulty level from a file
 void chooseWordFromFile(char *word, int difficulty) {
-    FILE *file = fopen("hangman.txt", "r");
+    FILE *file = fopen("/Users/urooj/Desktop/hangman.txt", "r");
     if (file == NULL) {
         printf("Error opening the file.\n");
         exit(EXIT_FAILURE);
@@ -22,7 +22,24 @@ void chooseWordFromFile(char *word, int difficulty) {
 
         if (currentDifficulty == difficulty) {
             token = strtok(NULL, " \n");
-            strcpy(word, token);
+
+            // Tokenize the words using space as a delimiter
+            char *words[MAX_WORD_LENGTH];
+            int count = 0;
+            while (token != NULL) {
+                words[count++] = token;
+                token = strtok(NULL, " \n");
+            }
+
+            // Randomly select one of the words
+            if (count > 0) {
+                int randomIndex = rand() % count;
+                strcpy(word, words[randomIndex]);
+            } else {
+                printf("No words found for difficulty level %d.\n", difficulty);
+                exit(EXIT_FAILURE);
+            }
+
             break;
         }
     }
@@ -31,18 +48,23 @@ void chooseWordFromFile(char *word, int difficulty) {
 }
 
 int main() {
+    srand(time(NULL));
+
     char word[MAX_WORD_LENGTH];
-    char guessedLetters[MAX_WORD_LENGTH] = "";
     int difficulty, incorrectAttempts = 0;
-;
-    
-    printf("Select difficulty level:\n");
+    printf("\n");
+
+    printf("Welcome to hangman please select what you wants to play:\n");
     printf("1. Easy\n");
     printf("2. Medium\n");
     printf("3. Hard\n");
     scanf("%d", &difficulty);
 
     chooseWordFromFile(word, difficulty);
+
+    
+
+    printf("Here you go, guess the word: %s\n", word);
 
     return 0;
 }
