@@ -54,10 +54,12 @@ int main() {
     int difficulty, incorrectAttempts = 0;
     printf("\n");
 
-    printf("Welcome to hangman please select what you wants to play:\n");
+    printf("Welcome to hangman:\n");
+    printf("Choose the difficulty level\n");
     printf("1. Easy\n");
     printf("2. Medium\n");
     printf("3. Hard\n");
+    printf("Press 1 for EASY, 2 for MEDIUM, and 3 for Hard\n");
     scanf("%d", &difficulty);
 
     chooseWordFromFile(word, difficulty);
