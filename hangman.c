@@ -4,14 +4,8 @@
 #include <time.h>
 #include <windows.h>
 
-
-
 #define MAX_LENGTH 100
 #define MAX_WORDS 50
-
-void clearConsole() {
-    printf("\033[2J\033[H");
-}
 
 //Declaring a structure
 typedef struct {
@@ -29,10 +23,10 @@ WordData takeWordFromFile(char *filename) {  //This function was originally writ
         //return NULL;
     }
 
-    int wordCount = 0;
-    char line[MAX_LENGTH];
+   int wordCount = 0;
+   char line[MAX_LENGTH];
 
-    while (fgets(line, sizeof(line), file) != NULL && wordCount < MAX_WORDS) {
+   while (fgets(line, sizeof(line), file) != NULL && wordCount < MAX_WORDS) {
         line[strcspn(line, "\n")] = '\0'; //Remove newline character
         strcpy(result.words[wordCount], line);
         wordCount++;
@@ -43,33 +37,32 @@ WordData takeWordFromFile(char *filename) {  //This function was originally writ
         result.randomIndex = rand() % wordCount;
         if (result.randomIndex >= 0 && result.randomIndex < wordCount) {
             printf("Word to guess is:\n%s\n", result.words[result.randomIndex]);
-	    //printf("Actual actual random is : %d", result.randomIndex);
         }
     }
 
     return result;
 }
 
+//function to extract the words from a file
 void takeCorrectWordFromAnotherFile(char *filename, char words[MAX_WORDS][MAX_LENGTH]){
     FILE *file = fopen(filename, "r");
     if (file == NULL) {
         printf("File does not exist.\n");
-        //return NULL;
+        return NULL;
     }
-
+	
     int wordCount = 0;
     char line[MAX_LENGTH];
 
     while (fgets(line, sizeof(line), file) != NULL && wordCount < 44) {
-        line[strcspn(line, "\n")] = '\0'; //Remove newline character
-	 //printf("Word %d: %s\n", wordCount, line); // Print the word being read
+        line[strcspn(line, "\n")] = '\0';      //Remove newline character
         strcpy(words[wordCount], line);
         wordCount++;
     }
     fclose(file);
 }
 
-
+//function to print the hangman figure
 void printHangman(int mistakes) {
     switch (mistakes) {
         case 6:
@@ -139,6 +132,7 @@ void printHangman(int mistakes) {
     }
 }
 
+//function to check the user-entered letter
 void checkEnteredLetter(char *filename1, char*filename2){
    	int chances = 6, found = 0, mistake = 0, repeated = 0;
     	int index = 0;
@@ -147,39 +141,38 @@ void checkEnteredLetter(char *filename1, char*filename2){
 	WordData wordData = takeWordFromFile(filename1);
 		int random = wordData.randomIndex;
 		char guessWord[50];
-                strcpy(guessWord, wordData.words[random]); //guessWord is the word with missing letters
-		char checkWordData[MAX_WORDS][MAX_LENGTH];
+                strcpy(guessWord, wordData.words[random]);    //guessWord is the word with missing letters
+		
+	        char checkWordData[MAX_WORDS][MAX_LENGTH];
 		takeCorrectWordFromAnotherFile(filename2, checkWordData);
                 char actualWord[30];
-		strcpy(actualWord, checkWordData[random]);//actualWord is the same word but with complete letters
+		strcpy(actualWord, checkWordData[random]);     //actualWord is the same word but with complete letters
 		
-		//printf("\nActual Word is : %s", actualWord);
-
-		char letter;
+	        char letter;
 		while(chances > 0 && chances < 7){
                		printf("\nEnter letter: ");
                		scanf(" %c", &letter);
-                         //clearConsole();
-			 system("cls");
-     			 for(int j = 0; j < strlen(actualWord); ++j){
-				 found = 0;
-				 if (actualWord[j] == letter) {
-						if(guessWord[j] == '_'){
+			system("cls");
+     			for(int j = 0; j < strlen(actualWord); ++j){
+				found = 0;
+				if (actualWord[j] == letter) {
+					if(guessWord[j] == '_'){
 						guessWord[j] = letter;
 						found = 1;
 						for(int i = 0; i < strlen(actualWord) - j; ++i){
 							 if (actualWord[i] == letter){
 							   if(guessWord[i] == '_'){
-            			 			   	guessWord[i] = letter; // Update the corresponding position in list2
+            			 			   	guessWord[i] = letter;   // Update the corresponding position in list2
 		    					    }
 							 }
 						}
 					 break;
 					}
+                                //calculting user-entered wrong characters as to print the body and to reduce the chances
 				if(found != 1){
-				printf("\n\nThe entered letter is repeated.\nThe limit of repetition is 4\n");
-				found = 1;
-				++repeated;
+					printf("\n\nThe entered letter is repeated.\nThe limit of repetition is 4\n");
+					found = 1;
+					++repeated;
 				}
 				break;
         			}
@@ -205,7 +198,7 @@ void checkEnteredLetter(char *filename1, char*filename2){
                     		  }
                     		printf("\nRemaining chances are : %d\n", chances);
                     		printHangman(mistake);
-                    		//system("cls");
+                    	
                 	}// end found
         
                 	else {
@@ -215,13 +208,10 @@ void checkEnteredLetter(char *filename1, char*filename2){
                     	}
                     	printf("\nRemaining chances are : %d\n", chances);
                     	printHangman(mistake);
-                    	//system("cls");
 		  	}
 
                 	if(strcmp(actualWord, guessWord) == 0){
                     		printf("\n\nCONGRATULATION! YOU WON THE GAME!\n\n");
-                    		//system("cls");
-		    		//clearConsole();
                     		break;
                     	 }
 
@@ -237,8 +227,7 @@ void checkEnteredLetter(char *filename1, char*filename2){
                 	if(chances == 0) 
                 	printf("\n\nGAME OVER! YOU LOST!\n\n");
 		   	printf("\nThe word was : %s", actualWord);
-			//break;
-}
+} //end of function checkEnteredLetter
 
 
 
@@ -299,7 +288,7 @@ printf("Get ready to play! Enter 'yes' to begin: ");
 		if (level > 3) {
                 printf("Invalid input. Please enter a valid level.\n");
                 while (getchar() != '\n'); // Clear input buffer
-                //continue; // Go back to the beginning of the loop
+                
             }
 		
 	     	 while (getchar() != '\n');
