@@ -41,7 +41,8 @@ WordData takeWordFromFile(char *filename) {  //This function was originally writ
     }
 
     return result;
-}
+} //end function takeWordFromFile
+
 
 //function to extract the words from a file
 void takeCorrectWordFromAnotherFile(char *filename, char words[MAX_WORDS][MAX_LENGTH]){
@@ -60,7 +61,8 @@ void takeCorrectWordFromAnotherFile(char *filename, char words[MAX_WORDS][MAX_LE
         wordCount++;
     }
     fclose(file);
-}
+} //end function takeCorrectWordFromAnotherFile
+
 
 //function to print the hangman figure
 void printHangman(int mistakes) {
@@ -130,7 +132,8 @@ void printHangman(int mistakes) {
             printf("__|__\n");
             break;
     }
-}
+} // end function printHangman
+
 
 //function to check the user-entered letter
 void checkEnteredLetter(char *filename1, char*filename2){
@@ -311,9 +314,8 @@ printf("Get ready to play! Enter 'yes' to begin: ");
               checkEnteredLetter("hard.txt", "checkhard.txt");
 
             }
-        } 
+        } //end of if statement(strcmp(input, compare) == 0)
 
-	
    }//end of while loop
     
-}
+} // end main function
