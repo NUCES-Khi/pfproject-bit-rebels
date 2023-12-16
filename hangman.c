@@ -173,7 +173,7 @@ void checkEnteredLetter(char *filename1, char*filename2){
 					}
                                 //calculting user-entered wrong characters as to print the body and to reduce the chances
 				if(found != 1){
-					printf("\n\nThe entered letter is repeated.\nThe limit of repetition is 4\n");
+					printf("\n\nThe entered letter is repeated.\nThe limit of repetition is 2\n");
 					found = 1;
 					++repeated;
 				}
@@ -201,6 +201,10 @@ void checkEnteredLetter(char *filename1, char*filename2){
                     		  }
                     		printf("\nRemaining chances are : %d\n", chances);
                     		printHangman(mistake);
+				if(strcmp(actualWord, guessWord) == 0){
+                    			printf("\n\nCONGRATULATION! YOU WON THE GAME!\n\n");
+                    			break;
+                    	 }
                     	
                 	}// end found
         
@@ -211,12 +215,11 @@ void checkEnteredLetter(char *filename1, char*filename2){
                     	}
                     	printf("\nRemaining chances are : %d\n", chances);
                     	printHangman(mistake);
-		  	}
-
-                	if(strcmp(actualWord, guessWord) == 0){
+			if(strcmp(actualWord, guessWord) == 0){
                     		printf("\n\nCONGRATULATION! YOU WON THE GAME!\n\n");
                     		break;
                     	 }
+		  	}
 
 			//checking if game is over or not
 			if(repeated > 4){
