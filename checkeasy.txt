@@ -1,29 +1,29 @@
-a p p l e 
-b a n a n a 
-c h e r r y 
-o r a n g e 
-g r a p e
-l e m o n 
-m a n g o 
-p e a c h 
-p l u m 
-w a t e r m e l o n 
+a v o c a d o
+b u t t e r f l y
+c u p c a k e
+d o l p h i n
+e l e p h a n t
+f l a m i n g o
 g i r a f f e
-e l e p h a n t 
-l i o n 
-t i g e r 
-m o n k e y 
-z e b r a 
-p a n d a 
-k a n g a r o o 
-k o a l a 
-c o m p u t e r 
-p r o g r a m m i n g 
-a l g o r i t h m 
-s o f t w a r e 
-h a r d w a r e 
-k e y b o a r d 
-m o u s e 
-m o n i t o r 
-p r i n t e r 
-n e t w o r k
+h o n e y b e e
+i c e c r e a m
+j e l l y f i s h
+k o a l a
+l a d y b u g
+m u s h r o o m
+n a r w h a l
+o c t o p u s
+p i n e a p p l e
+q u o k k a
+r a i n b o w
+s u n f l o w e r
+t u r t l e
+u n i c o r n
+v u l t u r e
+w a t e r f a l l
+x y l o p h o n e
+y o g a
+z u c c h i n i
+c a c t u s
+d r a g o n f l y
+f i r e f l y
