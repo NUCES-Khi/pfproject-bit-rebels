@@ -15,12 +15,12 @@ typedef struct {
 
     
 // Function to choose a random word from a file
-WordData takeWordFromFile(char *filename) {  //This function was originally written by Urooj. I improvise it according to the requirements.
+WordData takeWordFromFile(char *filename) {  //This function was originally written by Urooj. I improvised it according to the requirements.
     WordData result = { -1, {""} };
     FILE *file = fopen(filename, "r");
     if (file == NULL) {
         printf("File does not exist.\n");
-        //return NULL;
+        return NULL;
     }
 
    int wordCount = 0;
