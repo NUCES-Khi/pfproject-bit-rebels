@@ -55,7 +55,9 @@ The game proceeds as follows:
 5. Complete the word before the chances end
 
 6. Once the chances end and body of hangman drawn completely you will lose the game
-   
+
+   ![Unknown](https://github.com/NUCES-Khi/pfproject-bit-rebels/assets/144048378/867cc34f-0161-41a2-9694-b31c1ded8f49)
+
 #### Compilation: 
 The code of hangman will compile in C program 
 
