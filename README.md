@@ -1,4 +1,4 @@
-# Team Members
+### Team Members
 Amna(23K-0066)
 
 Urooj Baloch(23K-0071)
@@ -39,7 +39,7 @@ The game proceeds as follows:
 14. The game will continue until the user exits the game if user exit the game the game will show him his/her score or how many times he won the game
 
 
-## Instructions
+# Instructions
 1.You should have chose the difficulty level first
 
 2. The program will display the word your goal is to guess the correct word
@@ -59,6 +59,6 @@ The code of hangman will compile in C program
 Follow the on-screen instructions to guess the missing letters and complete the word before running out of attempts.
 
 
-## Code Structure
+# Code Structure
 
 The code structure involves functions to handle user input,function to pick the random word ,checking the entered character against the word, files containg words to be guessed of each difficulty level and of correct words, updating the puzzle, and managing the game flow.
