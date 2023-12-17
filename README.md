@@ -4,13 +4,7 @@ Amna(23K-0066)
 Urooj Baloch(23K-0071)
 
 # Hangman Game
-This is a simple implementation of the Hangman game written in C. The game uses two arrays:
-
-##### Array 1: 
-Contains words for the game.
-
-##### Array 2: 
-Contains the same words but with missing letters, forming the initial puzzle for the user.
+This is a simple implementation of the Hangman game written in C. 
 
 ## How the Game Works
 
@@ -46,15 +40,25 @@ The game proceeds as follows:
 
 
 ## Instructions
-1. 
+1.You should have chose the difficulty level first
+
+2. The program will display the word your goal is to guess the correct word
+
+3. The words should be in lower case
+
+4. You have 6 chances to guess the correct word
+
+5. Complete the word before the chances end
+
+6. Once the chances end and body of hangman drawn completely you will lose the game
+   
 #### Compilation: 
-Compile the code using a C compiler.
-#### Execution: 
-Run the compiled program.
+The code of hangman will compile in C program 
+
 #### Gameplay: 
 Follow the on-screen instructions to guess the missing letters and complete the word before running out of attempts.
 
 
 ## Code Structure
 
-The code structure involves using two arrays, functions to handle user input, checking the entered character against the word, updating the puzzle, and managing the game flow.
+The code structure involves functions to handle user input,function to pick the random word ,checking the entered character against the word, files containg words to be guessed of each difficulty level and of correct words, updating the puzzle, and managing the game flow.
