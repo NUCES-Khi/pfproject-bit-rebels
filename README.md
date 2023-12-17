@@ -44,7 +44,7 @@ The game proceeds as follows:
 
 
 # Instructions
-1.You should have chose the difficulty level first
+1. You should have chose the difficulty level first
 
 2. The program will display the word your goal is to guess the correct word
 
