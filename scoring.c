@@ -1,9 +1,10 @@
+
+#include<stdio.h>
 int main() {
-    // ... (previous code)
+   
 
     while (level > 0 && level < 4) {
-        // ... (previous code)
-
+        
         printf("Get ready to play! Enter 'yes' to begin: ");
         fgets(input, sizeof(input), stdin);
         if (strcmp(input, compare) == 0) {
