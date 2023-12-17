@@ -222,7 +222,7 @@ void checkEnteredLetter(char *filename1, char*filename2){
 		  	}
 
 			//checking if game is over or not
-			if(repeated > 4){
+			if(repeated > 2){
 				printf("\n\nGAME OVER! YOU LOST!\n\n");
 				printf("\n\nYou Exceeded the limit of repeating letters which are already present");
 				break;
