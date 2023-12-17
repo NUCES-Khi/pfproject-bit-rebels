@@ -14,7 +14,7 @@ typedef struct {
 } WordData;
 
     
-// Function to choose a random word from a file
+// Function to choose a random word from a file and store them in a struct
 WordData takeWordFromFile(char *filename) {  //This function was originally written by Urooj. I improvised it according to the requirements.
     WordData result = { -1, {""} };
     FILE *file = fopen(filename, "r");
