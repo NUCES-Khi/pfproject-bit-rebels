@@ -4,6 +4,10 @@ Amna(23K-0066)
 Urooj Baloch(23K-0071)
 
 # Hangman Game
+
+
+![images](https://github.com/NUCES-Khi/pfproject-bit-rebels/assets/144048378/cc95f64c-871c-4e6d-95a2-80bc56c3c175)
+
 This is a simple implementation of the Hangman game written in C. 
 
 ## How the Game Works
