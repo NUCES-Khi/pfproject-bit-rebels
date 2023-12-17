@@ -67,4 +67,6 @@ Follow the on-screen instructions to guess the missing letters and complete the 
 
 # Code Structure
 
+![Handman-plan](https://github.com/NUCES-Khi/pfproject-bit-rebels/assets/144048378/e22e6dce-0477-4f49-b0d5-449d98065f0a)
+
 The code structure involves functions to handle user input,function to pick the random word ,checking the entered character against the word, files containg words to be guessed of each difficulty level and of correct words, updating the puzzle, and managing the game flow.
