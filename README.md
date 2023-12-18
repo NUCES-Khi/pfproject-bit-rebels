@@ -134,5 +134,5 @@ We want the user to have a smooth and nice User Experience while playing our Han
        }
 ```
 
-
-
+## Complexity of our Algorithm:
+The complexity of our algorithm is O(n<sup>2</sup>). There are surely chances of improvment in our code but still O(n<sup>2</sup>) is not a bad value for space complexity, since we are only using a limited number of words in the files we used.
