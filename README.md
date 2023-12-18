@@ -3,70 +3,136 @@ Amna(23K-0066)
 
 Urooj Baloch(23K-0071)
 
-# Hangman Game
-
+# Project Proposal: To Create A Hangman Game in C
 
 ![images](https://github.com/NUCES-Khi/pfproject-bit-rebels/assets/144048378/cc95f64c-871c-4e6d-95a2-80bc56c3c175)
 
-This is a simple implementation of the Hangman game written in C. 
 
-## How the Game Works
+## Datastructures used, how and why:
 
-The game proceeds as follows:
+### What we used:
+1. A <strong>struct</strong> datastructure which we created to store 2 values:
+   * A random index.
+   * A 2D Array which stores all the words from a given file.
+2. <strong>Array</strong> structure, to compare the user-input for a missing letter against the actual letter.
 
-1. Firstly,program ask the user if he wants to play or not
+### How we used:
+1. We defined the <strong>Struct</strong> Data Structure using the struct keyword as shown below:
 
-2. If user wants to play the game the program will ask the user to choose the level i.e EASY, MEDIUM,or HARD 
+   ```C
+   typedef struct {
+    int randomIndex;
+    char words[MAX_WORDS][MAX_LENGTH];
+   } WordData;
+   ```
+2. Arrays are used to verify user input against the actual word as shown below:
+   ```C
+           // letter is user input
+		for (j; j < strlen(actualWord); ++j){
+			if (actualWord[j] == letter && guessWord[j] == '_'){
+				guessWord[j] = letter;
+				found = 1;
+			}
+		}
+		// checking if the user input is being repeated i.e. the user has already entered that letter before:
+		j = 0;
+		for (j; j < index; ++j){
+			if (wrongLetters[j] == letter) 
+				repeatFlag = 1;
+		}
+   ```
+   Here,
+   * if the user input is correct, we are updating the guess-word's missing letter with the user input
+   * repeatFlag makes sure that the user's number of remaining chances before the game ends remains the same.
 
-3. The words for each level are stored in three different files    
- 
-4. The program randomly selects a word from the file according to user wish of difficulty
+### Why we used:
 
-5. It displays the a random word with missing letter from the file which which contains these words 
+1. We have three levels of difficulty i.e. easy, medium and hard. For each level of difficulty we have two files, both files have the same words but one file has complete words and the other file has words with missing letters.
+2. We had to read and store those files in a 2D array so we can find the word against the program-generated random index.
+3. Considering the type of functions we had in our mind, we decided to create a struct structure, to store the value for both, the random index number and a 2D array to contain our words.
+4. Strings work as arrays. If we want to compare a letter of string A against a letter of string B, we need to use arrays.
 
-6. The user enters a character to guess the missing letters.
+## Major Problems Faced and How we resolved them:
 
-7. The program checks the entered character from the file which contains the correct and complete word
+1. <strong>Filing</strong> was the main issue we encountered. We resolved it by learning more about it.
+2. The code had bugs, like the loop to take user input and compare it with the actual word was not working properly. We resolved this issue by doing hours of debugging.
 
-8. If the character matches any of the missing letters, it reveals the correct guesses.
+## Algorithm:
 
-9. If the character doesn't match, it deducts a chance from the user's available attempts.
-    
-10. Each wrong attempt of user make the body of hangman until the body completes
+### Working of main function:
 
-11. The body of hangman is based on the chances of wrong attempts if the user become out of chances and the man completly hangs the user will loss the game
+1. The program starts with printing the rules of the game.
+2. The user is given two options.
+   * Enter 0 to exit the game.
+   * Enter 'yes' to start the game.
+3. When the game starts, the user is given options to choose the difficulty level.
+   * Enter 1 for level 1.
+   * Enter 2 for level 2.
+   * Enter 3 for level 3.
+4. If the user enters 0 for the difficulty level, the game ends!
+5. Else the code calls the function "checkEnteredLetter" and in the parameters, text-files are given depending on the level chosen.
+   ```C
+   
+     if(level == 1){
+        checkEnteredLetter("easy.txt", "checkeasy.txt");
+     }
+   
+     if(level == 2){
+        checkEnteredLetter("medium.txt", "checkmedium.txt");
+     }
+   
+     if(level == 3){
+        checkEnteredLetter("hard.txt", "checkhard.txt");
+     }
+   
+   ```
+6. Here easy.txt, medium.txt and hard.txt are the files containing words with missing letters and the other three files contain the same word in the same order, but complete (no missing letters).
 
-12. If the user was able to complete the correct word before the chances end he/she will win the game
+### Working of checkEnteredLetter(char *file1, char *file2):
 
-13. The game continues until the user either guesses all the letters or runs out of attempts.
+1. We have declared and initialized some variables.
+2. We declare and initialize a variable using the struct we defined, as shown below:
 
-14. The game will continue until the user exits the game if user exit the game the game will show him his/her score or how many times he won the game
+   ```C
+          WordData wordData = takeWordFromFile(filename1); 
+   ```
+3. Here we are calling another function <strong>takeWordFromFile(char *file)</strong>.
+4. This function will return us two values, a random index generated by our code and a 2D array which contains all the words from the given file (contains words with missing letters).
+5. We then use the another function as shown below, to write all the words from the given file (contains complete words), to the given 2D array.
+   ```C
+         takeCorrectWordFromAnotherFile(filename2, checkWordData); // reads the given files and writes it all in our 2D array
+   ```
+6. Then we use a while loop to loop until the user has any remaining chances. Total number of chances for wrong guesses are six.
+7. Within the while loop we compare user input against actual word, if the user guesses a wrong letter, some part of the hangman gets drawn/printed.
+8. The game continues until the user if out of chances i.e. the hangman has been completely drawn/printed.
+9. We are using a function called printHangman to print the Hangman based on the number of chances left.
+10. If the user guesses the word correctly, the program asks user to:
+    * Press 0 to exit
+    * Press 1 to play more
+11. If the user chooses to continue playing, the user is again given the option to choose the difficulty level, and the rest of the procedure is the same.
+
+### Working of takeWordFromFile(char *filename):
+
+1. We declare and initialize some variables.
+2. We read the given file and write it in a 1D array. We are also replacing any "\n" (newline characters) with "\0" (endline character).
+3. We use the rand() function to get a random number within the range of the Maximum number of words we have in our files.
+4. The function returns two values:
+   * The int value of random index.
+   * The corresponding word (with missing letters) for that random index value.
+
+### Working of takeCorrectWordFromAnotherFile(char *filename, char words[MAX_WORDS][MAX_LENGTH]):
+
+1. We declare and initialize the required variables.
+2. It reads the given file and stores the words from the given file to the given 2D array, while replacing "\n" with "\0".
+
+### Function to Clear the Console:
+
+We want the user to have a smooth and nice User Experience while playing our Hangman, so we wrote the following function to clear the console everytime we get the user input:
+```C
+       void clearConsole() {
+          printf("\033[2J\033[H");
+       }
+```
 
 
-# Instructions
-1. You should have chose the difficulty level first
 
-2. The program will display the word your goal is to guess the correct word
-
-3. The words should be in lower case
-
-4. You have 6 chances to guess the correct word
-
-5. Complete the word before the chances end
-
-6. Once the chances end and body of hangman drawn completely you will lose the game
-
-   ![Unknown](https://github.com/NUCES-Khi/pfproject-bit-rebels/assets/144048378/867cc34f-0161-41a2-9694-b31c1ded8f49)
-
-#### Compilation: 
-The code of hangman will compile in C program 
-
-#### Gameplay: 
-Follow the on-screen instructions to guess the missing letters and complete the word before running out of attempts.
-
-
-# Code Structure
-
-
-
-The code structure involves functions to handle user input,function to pick the random word ,checking the entered character against the word, files containg words to be guessed of each difficulty level and of correct words, updating the puzzle, and managing the game flow.
