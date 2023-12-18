@@ -10,7 +10,7 @@
 </tr>
 <tr>
 	<td> Urooj Baloch </td>
-	<td> 23k - 0071 </td>
+	<td> 23k-0071 </td>
 </tr>
 </table>
 
