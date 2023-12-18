@@ -1,7 +1,18 @@
 ### Team Members
-Amna(23K-0066)
-
-Urooj Baloch(23K-0071)
+<table>
+<tr>
+	<th>Name</th>
+	<th>Seat Number</th>
+</tr>
+<tr>
+	<td> Amna </td>
+	<td> 23k-0066</td>
+</tr>
+<tr>
+	<td> Urooj Baloch </td>
+	<td> 23k - 0071 </td>
+</tr>
+</table>
 
 # Project Proposal: To Create A Hangman Game in C
 
