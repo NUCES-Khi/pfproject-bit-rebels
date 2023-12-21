@@ -62,7 +62,7 @@ https://github.com/NUCES-Khi/pfproject-bit-rebels/assets/142903458/291dbc86-e3fb
 
 ### Why we used:
 
-1. We have three levels of difficulty i.e. easy, medium and hard. After selecting a word from the file, we manipulate it and modified it by replacing limited amount letters with underscores and store the updated word in a 1D array.
+1. We have three levels of difficulty i.e. easy, medium and hard. After selecting a word from the file, we manipulate it and modified it by replacing limited amount of letters with underscores and store the updated word in a 1D array.
 2. We had to read and store those files in a 2D array so we can find the word against the program-generated random index.
 3. Considering the type of functions we had in our mind, we decided to create a struct structure, to store the value for both, the random index number and a 2D array to contain our words.
 4. Strings work as arrays. If we want to compare a letter of string A against a letter of string B, we need to use arrays.
