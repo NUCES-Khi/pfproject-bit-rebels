@@ -103,7 +103,7 @@ https://github.com/NUCES-Khi/pfproject-bit-rebels/assets/142903458/291dbc86-e3fb
    ```
 6. Here easy.txt, medium.txt and hard.txt are the files containing words.
 
-### Working of checkEnteredLetter(char *file1, char *file2):
+### Working of checkEnteredLetter(char *filename, int level):
 
 1. We have declared and initialized some variables.
 2. We declare and initialize a variable using the struct we defined, as shown below:
