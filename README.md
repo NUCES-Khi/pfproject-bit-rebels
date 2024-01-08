@@ -18,6 +18,10 @@
 
 https://github.com/NUCES-Khi/pfproject-bit-rebels/assets/142903458/291dbc86-e3fb-4d66-807c-6abefcbcd43e
 
+# Project Presentation:
+
+[Link to Presentation](https://youtu.be/edurm_0VfTI)
+
 # Project Proposal: To Create A Hangman Game in C
 
 ![images](https://github.com/NUCES-Khi/pfproject-bit-rebels/assets/144048378/cc95f64c-871c-4e6d-95a2-80bc56c3c175)
